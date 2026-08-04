@@ -1,6 +1,10 @@
 #!/usr/bin/venv python3
 
 try:
+    import sys
+except ImportError:
+    exit()
+try:
     import requests
 except ImportError:
     sys.exit()
@@ -8,10 +12,6 @@ try:
     from bs4 import BeautifulSoup
 except ImportError:
     sys.exit()
-try:
-    import sys
-except ImportError:
-    exit()
 
 class Information:
 
