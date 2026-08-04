@@ -4,6 +4,7 @@ try:
     import sys
 except ImportError:
     exit()
+
 try:
     import requests
 except ImportError:
@@ -45,8 +46,8 @@ def getInformation(url):
     stockS = []
 
     try:
-        html = requests.get(url, headers=headers).text
-    except requests.exceptions.MissingSchema:
+        html = requests.get(url, headers=headers, timeout=10).text
+    except (requests.exceptions.MissingSchema,requests.exceptions.Timeout):
         sys.exit()
     bs = BeautifulSoup(html, "html5lib")
 
